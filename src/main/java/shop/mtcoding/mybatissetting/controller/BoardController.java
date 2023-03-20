@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.mybatissetting.dto.BoardDetailOutDto2;
+import shop.mtcoding.mybatissetting.dto.BoardJoinUserDto;
+import shop.mtcoding.mybatissetting.dto.BoardJoinUserDto2;
 import shop.mtcoding.mybatissetting.model.board.Board;
 import shop.mtcoding.mybatissetting.model.board.BoardRepository;
 import shop.mtcoding.mybatissetting.service.BoardService;
@@ -32,15 +34,13 @@ public class BoardController {
 
     @GetMapping("/board/v2/{id}")
     public ResponseEntity<?> detailV2(@PathVariable Integer id) {
-        // BoardJoinUserDto dto =
-        boardService.boardDetail2(id);
-        return null;
+        BoardJoinUserDto dto = boardService.boardDetail2(id);
+        return ResponseEntity.ok().body(dto);
     }
 
     @GetMapping("/board/v3/{id}")
     public ResponseEntity<?> detailV3(@PathVariable Integer id) {
-        // BoardJoinUserDto dto =
-        boardService.boardDetail2(id);
-        return null;
+        BoardJoinUserDto2 dto = boardService.boardDetail3(id);
+        return ResponseEntity.ok().body(dto);
     }
 }

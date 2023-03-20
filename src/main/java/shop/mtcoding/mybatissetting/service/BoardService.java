@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.mybatissetting.dto.BoardDetailOutDto;
 import shop.mtcoding.mybatissetting.dto.BoardDetailOutDto2;
 import shop.mtcoding.mybatissetting.dto.BoardJoinUserDto;
+import shop.mtcoding.mybatissetting.dto.BoardJoinUserDto2;
 import shop.mtcoding.mybatissetting.model.board.BoardRepository;
 
 @RequiredArgsConstructor
@@ -24,14 +25,16 @@ public class BoardService {
         return boardDetailOutDto2;
     }
 
-    public void boardDetail2(Integer id) {
+    public BoardJoinUserDto boardDetail2(Integer id) {
         BoardJoinUserDto dto = boardRepository.findByIdJoinUser2(id);
         System.out.println("디버그 : " + dto);
+        return dto;
     }
 
-    public void boardDetail3(Integer id) {
-        BoardJoinUserDto dto = boardRepository.findByIdJoinUser2(id);
+    public BoardJoinUserDto2 boardDetail3(Integer id) {
+        BoardJoinUserDto2 dto = boardRepository.findByIdJoinUser3(id);
         System.out.println("디버그 : " + dto);
+        return dto;
     }
 
 }

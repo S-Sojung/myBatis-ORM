@@ -23,7 +23,7 @@
     <!-- 얘가 위의 값을 찾늗다. -->
     <select id="findByIdJoinUser3" resultMap="boardJoinUserDto2">
         select *
-        from board_tb b inner join user_tb u
+        from board_tb b inner join user_tb u 
         ON b.user_id = u.id
         WHERE b.id = #{id}
     </select>

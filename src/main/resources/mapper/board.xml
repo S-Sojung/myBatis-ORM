@@ -3,7 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="shop.mtcoding.mybatissetting.model.BaordRepository">
+<mapper namespace="shop.mtcoding.mybatissetting.model.board.BaordRepository">
+
+    <select id="findByIdJoinUser" resultType="shop.mtcoding.mybatissetting.dto.BoardDetailOutDto">
+        select b.*,
+               u.id user_id,
+               u.username user_username, 
+               u.password user_password, 
+               u.email user_email, 
+               u.created_at user_created_at 
+        from board_tb b inner join user_tb u 
+        ON b.user_id = u.id
+        where b.id = #{id}
+    </select>
 
     <select id="findAll" resultType="shop.mtcoding.mybatissetting.model.board.Board">
         select * from board_tb
@@ -14,7 +26,7 @@
     </select>   
 
     <insert id="insert">
-        insert into board_tb (username, password, email, created_at) values(#{username}, #{password}, #{email}, now())
+        insert into board_tb (title, content, user_id, created_at) values(#{title}, #{content}, #{userId}, now())
     </insert>    
 
     <delete id="deleteById" >
@@ -22,6 +34,6 @@
     </delete>    
 
     <update id="updateById" >
-        update board_tb set username= #{username},password= #{password}, email= #{email} where id = #{id} 
+        update board_tb set title= #{title},content= #{content} where id = #{id} 
     </update>    
 </mapper>

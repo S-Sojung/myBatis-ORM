@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import shop.mtcoding.mybatissetting.dto.BoardDetailOutDto2.UserDto;
 
 @Getter
 @Setter
